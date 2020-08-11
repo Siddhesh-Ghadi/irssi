@@ -30,8 +30,13 @@ addons:
 before_install:
     - perl -V
     - pushd ~
-    - curl -sSLf https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip | funzip > bin/ninja
-    - chmod +x bin/ninja
+    - |
+      if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
+        sudo apt install ninja -y
+      else
+        curl -sSLf https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip | funzip > bin/ninja
+        chmod +x bin/ninja
+      fi
     - curl -sSLf https://github.com/mesonbuild/meson/releases/download/0.51.1/meson-0.51.1.tar.gz | tar xz
     - ( cd bin ; ln -s ../meson-*/meson.py meson )
     - curl -sSLf https://github.com/irssi-import/glib-travis-build/releases/download/2.58.3/travis-xenial-glib-2.58.3.tar.xz | tar xJ
