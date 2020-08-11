@@ -32,7 +32,7 @@ before_install:
     - pushd ~
     - |
       if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-        sudo apt install ninja -y
+        sudo apt install ninja libglib2.0-dev -y
       else
         curl -sSLf https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip | funzip > bin/ninja
         chmod +x bin/ninja
