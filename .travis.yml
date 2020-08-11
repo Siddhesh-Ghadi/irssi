@@ -28,11 +28,6 @@ addons:
             - libotr5-dev
 
 before_install:
-    - |
-      if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
-        \curl -L https://install.perlbrew.pl | bash
-        perlbrew install 5.24-shrplib
-      fi
     - perl -V
     - pushd ~
     - curl -sSLf https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip | funzip > bin/ninja
@@ -40,8 +35,8 @@ before_install:
     - curl -sSLf https://github.com/mesonbuild/meson/releases/download/0.51.1/meson-0.51.1.tar.gz | tar xz
     - ( cd bin ; ln -s ../meson-*/meson.py meson )
     - curl -sSLf https://github.com/irssi-import/glib-travis-build/releases/download/2.58.3/travis-xenial-glib-2.58.3.tar.xz | tar xJ
-    - export PKG_CONFIG_PATH=$HOME/glib-build/lib/x86_64-linux-gnu/pkgconfig
-    - export LD_LIBRARY_PATH=$HOME/glib-build/lib/x86_64-linux-gnu
+    - export PKG_CONFIG_PATH=$HOME/glib-build/lib/86_64-linux-gnu/pkgconfig
+    - export LD_LIBRARY_PATH=$HOME/glib-build/lib/86_64-linux-gnu
     - popd
 
 install:
