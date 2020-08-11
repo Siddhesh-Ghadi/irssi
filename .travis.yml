@@ -31,8 +31,6 @@ before_install:
     - |
       if [ "$TRAVIS_CPU_ARCH" = "ppc64le" ]; then
         \curl -L https://install.perlbrew.pl | bash
-        yes|sudo cpan App::perlbrew
-        yes|perlbrew init
         perlbrew use 5.24-shrplib
       fi
     - perl -V
