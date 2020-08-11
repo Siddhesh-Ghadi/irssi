@@ -38,7 +38,9 @@ before_install:
         git checkout v1.8.2
         ./configure.py --bootstrap
         export PATH=/usr/local/bin:$PATH
-        ln -sf $SOURCE_ROOT/ninja/ninja /usr/local/bin/ninja
+        sudo ln -sf ./ninja /usr/local/bin/ninja
+        sudo chmod 777 /usr/local/bin/ninja
+        cd ..
         ninja --version
       else
         curl -sSLf https://github.com/ninja-build/ninja/releases/download/v1.9.0/ninja-linux.zip | funzip > bin/ninja
