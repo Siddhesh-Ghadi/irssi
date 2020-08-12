@@ -26,7 +26,7 @@ addons:
             - elinks
             - libgcrypt11-dev
             - libotr5-dev
-
+            - libglib2.0-dev
 
 before_install:
     - perl -V
